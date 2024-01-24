@@ -1,4 +1,9 @@
+import 'dart:developer';
+
 import 'package:get/get.dart';
+
+import '../../../data/provider/storage_provider.dart';
+import '../../../routes/app_pages.dart';
 
 class HomeController extends GetxController {
   //TODO: Implement HomeController
@@ -12,6 +17,11 @@ class HomeController extends GetxController {
   @override
   void onReady() {
     super.onReady();
+    String status = StorageProvider.read(StorageKey.status);
+    log("status : $status");
+    if (status != "logged"){
+      Get.offAllNamed(Routes.LOGIN);
+    }
   }
 
   @override
