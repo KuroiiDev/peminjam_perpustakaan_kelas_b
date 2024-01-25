@@ -38,7 +38,7 @@ class PeminjamanController extends GetxController {
       FocusScope.of(Get.context!).unfocus();
       formKey.currentState?.save();
       if (formKey.currentState!.validate()) {
-        final response = await ApiProvider.instance().post(Endpoint.peminjaman,data:
+        final response = await ApiProvider.instance().post(Endpoint.pinjam,data:
         {
           "user_id": StorageProvider.read(StorageKey.idUser),
           "book_id": Get.parameters['id'].toString(),

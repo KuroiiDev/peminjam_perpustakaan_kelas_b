@@ -6,5 +6,5 @@ class Endpoint {
   static const String login = "${baseUrlApi}login";
   static const String book = "${baseUrlApi}book";
   static const String koleksi = "${baseUrlApi}koleksi";
-  static const String peminjaman = "${baseUrlApi}pinjam";
+  static const String pinjam = "${baseUrlApi}pinjam";
 }
