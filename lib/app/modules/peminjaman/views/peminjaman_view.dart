@@ -10,14 +10,44 @@ class PeminjamanView extends GetView<PeminjamanController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('PeminjamanView'),
+        title: Text('Pinjam Buku ${Get.parameters['judul'].toString()}'),
         centerTitle: true,
       ),
-      body: const Center(
-        child: Text(
-          'PeminjamanView is working',
-          style: TextStyle(fontSize: 20),
-        ),
+      body: Center(
+          child: Form(
+            key: controller.formKey,
+            child: Column(
+              children: [
+                TextFormField(
+                  controller: controller.tanggalPinjamController,
+                  decoration: InputDecoration(hintText: "Tanggal Pinjam"),
+                  validator: (value){
+                    if (value!.isEmpty){
+                      return "Tanggal tidak Boleh Kosong";
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: controller.tanggalKembaliController,
+                  decoration: InputDecoration(hintText: "Tanggal Kembali"),
+                  validator: (value){
+                    if (value!.isEmpty){
+                      return "Tanggal Tidak Boleh Kosong";
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(height: 50),
+                Obx(() => controller.loading.value?
+                CircularProgressIndicator():
+                ElevatedButton(onPressed: (){
+                  controller.pinjam();
+                },child: Text("Pinjam"))),
+
+              ],
+            ),
+          )
       ),
     );
   }

@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:dio/dio.dart' as dio;
 
 import '../../../data/constant/endpoint.dart';
+import '../../../data/model/response_login.dart';
 import '../../../data/provider/api_provider.dart';
 import '../../../data/provider/storage_provider.dart';
 import '../../../routes/app_pages.dart';
@@ -48,6 +49,8 @@ class LoginController extends GetxController {
           "username": usernameController.text.toString(),
           "password": passwordController.text.toString()}));
         if (response.statusCode == 200) {
+          ResponseLogin responseLogin = ResponseLogin.fromJson(response.data);
+          await StorageProvider.write(StorageKey.idUser, responseLogin.data!.id!.toString());
           await StorageProvider.write(StorageKey.status, "logged");
           Get.snackbar("Success", "Login Berhasil!", backgroundColor: Colors.green);
           Get.offAllNamed(Routes.HOME);

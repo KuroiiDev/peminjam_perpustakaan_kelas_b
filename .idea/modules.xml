@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/peminjam_perpustakaan_kelas_b.iml" filepath="$PROJECT_DIR$/peminjam_perpustakaan_kelas_b.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/peminjam_perpustakaan_kelas_b_android.iml" filepath="$PROJECT_DIR$/android/peminjam_perpustakaan_kelas_b_android.iml" />
     </modules>
   </component>
 </project>
